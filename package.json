@@ -1,0 +1,24 @@
+{
+  "name": "convention-center-API",
+  "version": "1.0.0",
+  "author": "Bruno Vieira",
+  "description": "API para o evento de Convenção",
+  "email": "vieira.es@gmail.com",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.13.4",
+    "nodemon": "^2.0.15"
+  }
+}
