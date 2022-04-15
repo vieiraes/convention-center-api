@@ -8,7 +8,17 @@
         "titleBar.activeBackground": "#17928e",
         "titleBar.activeForeground": "#e7e7e7",
         "titleBar.inactiveBackground": "#17928e99",
+        "editorCursor.foreground": "#00ff62",
+        "terminalCursor.foreground": "#00ff62",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#17928e"
+    "peacock.color": "#17928e",
+    "editor.cursorWidth": 4,
+    "editor.cursorBlinking": "blink"
 }
+
+
+
+
+
+
