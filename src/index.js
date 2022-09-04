@@ -53,7 +53,6 @@ app.get("/presenter", (request, response) => {
     const { presenter } = request;
 
 
-
     const objeto = presenterDB.map(presenter => {
         return {
             presenterId: presenter.presenterId,
