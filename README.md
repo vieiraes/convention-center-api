@@ -5,12 +5,9 @@
 REST API as a solution for monitoring presentation times, aimed at conferences and events with simultaneous lectures that need a system that tracks and monitors the time of presentations in audiovisual rooms, thus bringing a follow-up of the time of each room with presentations.
 
 
-## Docemtnation
+## Documentation
 https://documenter.getpostman.com/view/20418848/VUxXLish
 
-# Foobar
-
-Foobar is a Python library for dealing with word pluralization.
 
 ## Installation
 
