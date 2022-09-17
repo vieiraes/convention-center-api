@@ -1,0 +1,78 @@
+version: "3.2"
+
+services:
+  db:
+    container_name: mongo-dev
+    restart: always
+    image: mongo:4.2
+    environment:
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+    networks:
+      - mongo-compose-network
+    ports:
+      - ${DB_PORT}:27017
+    volumes:
+      - ../data:/data/db
+
+  mongo-express:
+    container_name: mongo-express
+    restart: always
+    image: mongo-express
+    depends_on:
+      - db
+    networks:
+      - mongo-compose-network
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo-dev
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${DB_USER}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${DB_PASSWORD}
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=admin
+    ports:
+      - '8081:8081'
+    volumes:
+      - ../data:/data/db
+
+  # api:
+  #   image: node:16.15.1
+  #   container_name: api
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - ${SERVER_PORT}:${SERVER_PORT}
+  #   volumes:
+  #     - .:/usr/src/app
+  #   working_dir: /usr/src/app
+  #   command: yarn && yarn start
+  #   networks:
+  #     - mongo-compose-network
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "5"
+
+
+  metabase:
+    container_name: metabase
+    restart: always
+    image: metabase/metabase
+    env_file:
+      - ./config/metabase.env
+    depends_on:
+      - db
+    networks:
+      - mongo-compose-network
+    ports:
+      - 3001:3000
+
+
+
+networks:
+  mongo-compose-network:
+    driver: bridge
