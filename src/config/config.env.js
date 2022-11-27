@@ -1,6 +1,7 @@
-require('dotenv').config();
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-const envs = {
+export const envs = {
     port: process.env.PORT || 3000,
     
     db_user: process.env.DB_USER,
@@ -9,7 +10,3 @@ const envs = {
     db_port: process.env.DB_PORT,
     db_name: process.env.DB_NAME
 }
-
-
-
-module.exports = envs

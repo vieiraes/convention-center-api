@@ -15,6 +15,7 @@ services:
       - ${DB_PORT}:27017
     volumes:
       - ../data:/data/db
+    command: --auth
 
   mongo-express:
     container_name: mongo-express
@@ -61,7 +62,7 @@ services:
   metabase:
     container_name: metabase
     restart: always
-    image: metabase/metabase
+    image: metabase/metabase:latest
     env_file:
       - ./config/metabase.env
     depends_on:

@@ -1,9 +1,21 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 
-//Cria model
+//defining a model
+const BlogPost = new Schema({
+  id: String, 
+  name: String,
+  password: String,
+});
+
+
+
+
 const blogSchema = mongoose.model('Blog', {
-  id: String, // String is shorthand fefor {type: String}
+  id: String, 
   name: String,
   password: String,
 });
